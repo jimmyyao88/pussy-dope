@@ -14,14 +14,14 @@ describe('views', () => {
       };
     });
 
-    it('should have a ContentHeader', () => {
-      let wrapper = shallow(<SearchPage {...props} />);
-      let contentHeader = wrapper.find('ContentHeader');
-
-      expect(contentHeader.length).toBe(1);
-      expect(contentHeader.prop('section')).toBe('Search Results');
-      expect(contentHeader.prop('title')).toBe(props.query);
-    });
+    // it('should have a ContentHeader', () => {
+    //   let wrapper = shallow(<SearchPage {...props} />);
+    //   let contentHeader = wrapper.find('ContentHeader');
+    //
+    //   expect(contentHeader.length).toBe(1);
+    //   expect(contentHeader.prop('section')).toBe('Search Results');
+    //   expect(contentHeader.prop('title')).toBe(props.query);
+    // });
 
     it('should have a Tracklist', () => {
       let wrapper = shallow(<SearchPage {...props} />);

@@ -13,14 +13,14 @@ describe('views', () => {
       };
     });
 
-    it('should have a ContentHeader', () => {
-      let wrapper = shallow(<HomePage {...props} />);
-      let contentHeader = wrapper.find('ContentHeader');
-
-      expect(contentHeader.length).toBe(1);
-      expect(contentHeader.prop('section')).toBe('Spotlight');
-      expect(contentHeader.prop('title')).toBe('Featured Tracks');
-    });
+    // it('should have a ContentHeader', () => {
+    //   let wrapper = shallow(<HomePage {...props} />);
+    //   let contentHeader = wrapper.find('ContentHeader');
+    //
+    //   expect(contentHeader.length).toBe(1);
+    //   expect(contentHeader.prop('section')).toBe('Spotlight');
+    //   expect(contentHeader.prop('title')).toBe('Featured Tracks');
+    // });
 
     it('should have a Tracklist', () => {
       let wrapper = shallow(<HomePage {...props} />);

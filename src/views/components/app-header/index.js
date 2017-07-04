@@ -12,7 +12,7 @@ function AppHeader({handleSearch, search, toggleSearch}) {
       <div className="g-row g-cont">
         <div className="g-col">
           <h1 className="header__title">
-            <Link to="/">我不会这样轻易的猫带</Link>
+            <Link to="/">{'<3'}</Link>
           </h1>
           <ul className="header__actions">
             <li>
