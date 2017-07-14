@@ -1,13 +1,36 @@
 //=========================================================
 //  UserCard Component
 //---------------------------------------------------------
-
+.bg-center{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.user-card-avatar{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  float: left;
+}
+.user-card-mask{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  filter: blur(0px);
+opacity: 1;
+background-color: #666;
+-webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,1)));
+}
 .user-card {
   margin-bottom: 40px;
-  padding-top: 110px;
-  height: 270px;
-  background: #1d1e1f;
-
+  margin-top: 69px;
+  padding-top: 200px;
+  height: 450px;
+  position: relative;
+      background-color: #282F33;
   .circle {
     float: right;
     margin-left: 10px;
@@ -20,15 +43,23 @@
     background: rgba(0, 0, 0, 0.2);
   }
 }
-
+.user-card-info{
+  display: inline-block;
+  float: left;
+      padding-top: 120px;
+}
 .user-card__title {
-  margin-bottom: 27px;
-  color: #d6d6d6;
+  color: #fff;
   font-size: rem(36px);
   font-weight: 300;
   line-height: (50px / 36px);
+  margin-left: 20px;
 }
+.user-card__city{
+  font-size: 14px;
+  margin-left: 20px;
 
+}
 //=====================================
 //  STATS
 //-------------------------------------

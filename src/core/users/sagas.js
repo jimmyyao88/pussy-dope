@@ -9,15 +9,16 @@ import { getUserById } from './selectors';
 export function* loadUser({payload}) {
   const { userId } = payload;
   const user = yield select(getUserById, userId);
-
+  //
   if (!user || !user.profile) {
-    yield call(fetchUser, userId);
+     yield call(fetchUser, userId);
   }
 }
 
 export function* loadUserLikes({payload}) {
   const { tracklistId, userId } = payload;
   const tracklist = yield select(getTracklistById, tracklistId);
+  console.log('tracklist',tracklist)
   if (tracklist && tracklist.isNew) {
     yield call(fetchUserLikes, tracklistId, userId);
   }
@@ -27,7 +28,7 @@ export function* loadUserTracks({payload}) {
   const { tracklistId, userId } = payload;
   const tracklist = yield select(getTracklistById, tracklistId);
   if (tracklist && tracklist.isNew) {
-    yield call(fetchUserTracks, tracklistId, userId);
+    // yield call(fetchUserTracks, tracklistId, userId);
   }
 }
 

@@ -5,13 +5,16 @@
 .waveform-timeline {
   position: relative;
   margin-bottom: 25px;
-  width: 100%;
+  width: 90%;
   height: 70px;
-  background: #2a2b2c;
+  background: transparent;
   opacity: 0;
+  bottom: 0;
 }
 
 .waveform-timeline--ready {
   opacity: 1;
   transition: opacity 400ms ease-in-out;
+  bottom: 0;
+  position: absolute;
 }

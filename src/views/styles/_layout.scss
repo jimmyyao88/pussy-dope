@@ -3,8 +3,10 @@
 //---------------------------------------------------------
 
 .g-col {
-  @include grid-column;
+  float: left;
+  position: relative;
   width: 100%;
+  padding:2px;
 }
 
 .g-cont {
@@ -27,19 +29,62 @@
   @include width-classes(4, sm-);
 }
 
-
 @include media-query(740) {
   @include width-classes(3, md-);
+  .md-hide {
+    display: none;
+  }
 }
 
 
 @include media-query(980) {
   @include width-classes(4, lg-);
-
   .g-cont {
     padding: 0;
   }
+  .content-main{
+    width: 72%;
+    float: left;
+  }
+  .content-side{
+    width: 27%;
+    float: left;
+
+  }
 }
+
+@include media-query(1200) {
+  .g-cont {
+    padding: 0;
+  }
+  .content-main{
+    width: 65%;
+    float: left;
+
+  }
+  .content-side{
+    width: 34%;
+    float: left;
+
+  }
+}
+
+@include media-query(1400) {
+  .g-cont {
+    padding: 0;
+  }
+  .content-main{
+    width: 70%;
+    float: left;
+
+  }
+  .content-side{
+    width: 29%;
+    float: left;
+
+  }
+}
+
 
 
 //=====================================

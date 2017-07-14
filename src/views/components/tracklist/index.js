@@ -52,7 +52,7 @@ export class Tracklist extends React.Component {
   render() {
     const { compactLayout, isMediaLarge, isPlaying, pause, play, selectedTrackId, selectTrack, tracklistId, tracks } = this.props;
 
-    const tracklistClassName = classNames('g-row  g-cont tracklist', {
+    const tracklistClassName = classNames('g-row  g-cont tracklist content-main', {
       'has-line-clamp': '-webkit-line-clamp' in document.body.style
     });
 

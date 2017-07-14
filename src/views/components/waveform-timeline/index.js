@@ -8,7 +8,8 @@ import Waveform from '../waveform';
 class WaveformTimeline extends React.Component {
   static propTypes = {
     displayProgress: React.PropTypes.bool.isRequired,
-    url: React.PropTypes.string.isRequired
+    url: React.PropTypes.string.isRequired,
+    isCompact: React.PropTypes.bool.isRequired
   };
 
   constructor() {
@@ -34,13 +35,13 @@ class WaveformTimeline extends React.Component {
   }
 
   render() {
-    const { displayProgress, url } = this.props;
+    const { displayProgress, url,isCompact } = this.props;
     const cssClasses = classNames('waveform-timeline', {'waveform-timeline--ready': this.state.isReady});
 
     return (
       <div className={cssClasses}>
         {displayProgress ? <AudioTimeline /> : null}
-        <Waveform onReady={this.ready} url={url} />
+        <Waveform isCompact={isCompact} onReady={this.ready} url={url} />
       </div>
     );
   }

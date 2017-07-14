@@ -5,7 +5,8 @@ import request from 'superagent';
 class Waveform extends React.Component {
   static propTypes = {
     onReady: React.PropTypes.func.isRequired,
-    url: React.PropTypes.string.isRequired
+    url: React.PropTypes.string.isRequired,
+    isCompact: React.PropTypes.bool.isRequired
   };
 
   componentDidMount() {
@@ -40,23 +41,43 @@ class Waveform extends React.Component {
   }
 
   renderCanvas(data) {
+    let offsetWidth = this.containerEl.offsetWidth;
+    console.log('offsetWidth',offsetWidth);
+    const { isCompact } = this.props;
     let canvas = document.createElement('canvas');
     canvas.height = data.height / 2; // 70px;
     canvas.width = data.width / 2;   // 900px
 
     let context = canvas.getContext('2d');
-    context.fillStyle = '#1d1e1f';
+    context.fillStyle = 'rgba(0, 0, 0, 0.5)';
 
     let samples = data.samples,
         l = samples.length,
+        skipWidth = 0,
+        width = 0,
         i = 0,
         x = 0,
         v;
+    if (isCompact) {
 
-    for (; i < l; i += 2, x++) {
-      v = samples[i] / 4;
-      context.fillRect(x, 0, 1, 35 - v);
-      context.fillRect(x, 35 + v, 1, 70);
+    }else{
+      skipWidth = 4
+      width = 3
+    }
+    skipWidth = 3
+    width = 2
+    for (; i < l; i += 2, x+=skipWidth) {
+      v = samples[i] / 5;
+      // console.log('v',v)
+      if(isCompact){
+        context.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      }else{
+        context.fillStyle = 'rgba(0, 0, 0, 0.5)';
+      }
+      context.fillRect(x, v, width, 40.5 - v);
+
+      context.fillStyle = 'rgba(0, 0, 0, 0.3)';
+      context.fillRect(x, 41, width, 29.5 - v);
     }
 
     this.containerEl.appendChild(canvas);

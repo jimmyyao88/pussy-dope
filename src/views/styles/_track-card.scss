@@ -6,9 +6,36 @@
   display: flex;
   overflow: hidden;
 }
-
+.track-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+}
+.track-overlay--bottom, .track-overlay--top {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    transition: opacity 250ms ease;
+}
+.track-overlay--bottom {
+    bottom: 0;
+    height: 120px;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,transparent),color-stop(1,rgba(0,0,0,.6)));
+    background-image: -webkit-linear-gradient(top,transparent 0,rgba(0,0,0,.6) 100%);
+    background-image: linear-gradient(to bottom,transparent 0,rgba(0,0,0,.6) 100%);
+}
+.track-overlay--top{
+    top:0;
+    height: 80px;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(44,41,70,.83)),color-stop(1,transparent));
+    background-image: -webkit-linear-gradient(top,rgba(44,41,70,.83) 0,transparent 100%);
+    background-image: linear-gradient(to bottom,rgba(44,41,70,.83) 0,transparent 100%);
+}
 .track-card__username {
-  color: #7d7e7f;
+  color: #fff;
   font-size: rem(13px);
   overflow: hidden;
   text-decoration: none;
@@ -73,10 +100,6 @@
 //-------------------------------------
 .track-card--compact {
   flex-direction: column;
-  margin-bottom: 30px;
-  border-top: 1px solid rgba(255,255,255,.1);
-  border-bottom: 1px solid #18191a;
-  padding-top: 20px;
 
   .track-card__image {
     position: relative; // IE11 needs this
@@ -95,9 +118,10 @@
   }
 
   .track-card__main {
-    position: relative;
-    background: #1d1e1f;
-
+    position: absolute;
+    background: transparent;
+    width: 100%;
+    height: 100%;
     &:before {
       content: '';
       float: left;
@@ -119,7 +143,7 @@
 
   .track-card__title {
     margin: 0 15px;
-    color: #bdbebf;
+    color: #fff;
     font-size: rem(14px);
     line-height: (20px / 14px);
 
@@ -152,7 +176,7 @@
 .track-card--full {
   margin-bottom: 20px;
   height: 220px;
-  background: #1d1e1f;
+  background: #fff;
 
   .track-card__image {
     align-self: flex-start;
@@ -160,6 +184,7 @@
   }
 
   .track-card__main {
+    position: relative;
     flex: 1;
     border-left: 4px solid rgba(0, 0, 0, .1);
     padding: 14px 20px 0 16px;

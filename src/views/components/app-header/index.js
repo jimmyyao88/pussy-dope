@@ -22,17 +22,6 @@ function AppHeader({handleSearch, search, toggleSearch}) {
                 onClick={toggleSearch}
               />
             </li>
-            <li>
-              <IconButton
-                icon="soundcloud"
-                label="SoundCloud"
-              />
-            </li>
-            <li>
-              <a className="link link--github" href="https://github.com/r-park/soundcloud-redux">
-                <Icon name="github" />
-              </a>
-            </li>
           </ul>
         </div>
       </div>

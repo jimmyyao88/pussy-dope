@@ -19,7 +19,6 @@ export function usersReducer(state = initialState, {payload, type}) {
           }
         });
       });
-
     case userActions.FETCH_USER_FULFILLED:
       return state.withMutations(users => {
         const { user } = payload;

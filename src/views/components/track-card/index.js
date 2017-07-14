@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
+import TrackOverlay from 'src/views/components/track-overlay';
 import { Track } from 'src/core/tracks';
 
 import AudioTimeline from '../audio-timeline';
@@ -66,10 +67,11 @@ export class TrackCard extends React.Component {
       <article className={className}>
         <div className="track-card__image">
           <img src={track.artworkUrl} />
+          {isCompact ? <TrackOverlay/> : null}
         </div>
 
         <div className="track-card__main">
-          {isCompact ? this.renderTimeline() : null}
+          {isCompact ? null : null}
 
           <div className="track-card__username">
             <Link to={`/users/${track.userId}/tracks`}>{track.username}</Link>
@@ -77,7 +79,7 @@ export class TrackCard extends React.Component {
 
           <h1 className="track-card__title">{track.title}</h1>
 
-          {isCompact ? null : <WaveformTimeline displayProgress={isSelected} url={track.waveformUrl} />}
+          {isCompact ? <WaveformTimeline isCompact={true} displayProgress={isSelected} url={track.waveformUrl} /> : <WaveformTimeline isCompact={false} displayProgress={isSelected} url={track.waveformUrl} />}
 
           <div className="track-card__actions">
             <div className="cell">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
-import { getCurrentUser, User, userActions } from 'src/core/users';
+import { getCurrentUser, User, userActions,getUserLikes } from 'src/core/users';
 
 import Tracklist from '../../components/tracklist';
 import UserCard from '../../components/user-card';
@@ -39,6 +39,7 @@ export class UserPage extends React.Component {
     }
     else {
       this.props.loadUserTracks(params.id);
+      // this.props.loadUserLikes(params.id);
     }
   }
 
@@ -50,7 +51,10 @@ export class UserPage extends React.Component {
     return (
       <section>
         <UserCard user={user} />
-        <Tracklist />
+        <Tracklist/>
+        <div className='content-side'>
+          <div className='side-head-title'>{'</3'}</div>
+        </div>
       </section>
     );
   }
@@ -63,6 +67,7 @@ export class UserPage extends React.Component {
 
 const mapStateToProps = createSelector(
   getCurrentUser,
+  getUserLikes,
   user => ({user})
 );
 

@@ -24,6 +24,7 @@ export function trackImageUrl(trackData, size = IMAGE_XLARGE_SIZE) {
   return url.replace(IMAGE_DEFAULT_SIZE, size);
 }
 
+
 export function waveformUrl(url) {
   if (url.includes('.json')) return url;
   return url
