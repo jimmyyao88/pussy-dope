@@ -39,15 +39,13 @@ export class UserPage extends React.Component {
     }
     else {
       this.props.loadUserTracks(params.id);
-      // this.props.loadUserLikes(params.id);
+      this.props.loadUserLikes(params.id);
     }
   }
 
   render() {
-    const { user } = this.props;
-
+    const { user,likes } = this.props;
     if (!user) return null;
-
     return (
       <section>
         <UserCard user={user} />
@@ -68,7 +66,7 @@ export class UserPage extends React.Component {
 const mapStateToProps = createSelector(
   getCurrentUser,
   getUserLikes,
-  user => ({user})
+  (user,likes)=> ({user,likes})
 );
 
 const mapDispatchToProps = {

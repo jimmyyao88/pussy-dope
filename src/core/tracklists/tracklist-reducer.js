@@ -8,6 +8,17 @@ import { Tracklist } from './tracklist';
 
 export function tracklistReducer(state = new Tracklist(), {payload, type}) {
   switch (type) {
+    // case tracklistActions.FETCH_LIKES_FULFILLED:
+    //   return state.withMutations(likes => {
+    //     likes
+    //       .merge({
+    //         isNew: false,
+    //         isPending: false,
+    //         nextUrl: payload.next_href || null,
+    //         trackIds: mergeTrackIds(tracklist.trackIds, payload.collection)
+    //       })
+    //       .merge(updatePagination(tracklist, tracklist.currentPage + 1));
+    //   });
     case tracklistActions.FETCH_TRACKS_FULFILLED:
       return state.withMutations(tracklist => {
         tracklist

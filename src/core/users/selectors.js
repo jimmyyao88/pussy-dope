@@ -5,6 +5,7 @@ export function getUsers(state) {
   return state.users;
 }
 export function getLikes(state){
+  console.log('state',state)
   return state.likes;
 }
 

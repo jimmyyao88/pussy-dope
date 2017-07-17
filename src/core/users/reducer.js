@@ -19,6 +19,10 @@ export function usersReducer(state = initialState, {payload, type}) {
           }
         });
       });
+    case tracklistActions.FETCH_LIKES_FULFILLED:
+      return state.withMutations((likes) => {
+        state.set('likes',payload.collection)
+      })
     case userActions.FETCH_USER_FULFILLED:
       return state.withMutations(users => {
         const { user } = payload;
